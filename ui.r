@@ -8,6 +8,12 @@ load("diabetes_map.rdata")
 load("brfss1112.RData")
 load("pop_dem_graphs.rdata")
 
+####################################3
+###############################333
+############# Make changes to app. 
+####################################
+######################################
+
 shinyUI(bootstrapPage(
   tabsetPanel("tabs",
               tabPanel("Home",
@@ -19,21 +25,17 @@ shinyUI(bootstrapPage(
                          p("Because diabetes - in particular, Type II Adult-Onset Diabetes - is often correlated with lifestyle traits, we hope this app may elucidate some of the factors that may contribute to a person's likelihood in having the illness, as well as explore county-level differences in Ohio's diabetic populations.")
                        ),
                        imageOutput("testgif")
-                       ),
+              ),
               tabPanel("Ohio Family Health Survey",
-                       titlePanel("Percent of Respondents with Diabetes, OFHS 2008"),
+                       titlePanel("Diabetic Demographics, OFHS 2008"),
                        sidebarPanel(
-                         selectInput("choicesOFHS", "Demographic:", choices = c("See More Details"="diabetes", "Access to Healthcare" = "coverage", "Higher Education" = "education", "Minority"="race", "Sex"="sex", "Income Level"="income", "Age" = "age", "BMI Category" = "bmi")),#"Diabetic"="diabetes" 
+                         selectInput("choicesOFHS", "Demographic:", choices = c("See More Details"="diabetes", "Access to Healthcare" = "coverage", "Higher Education" = "education", "Minority"="race", "Income Level"="income", "Age" = "age", "BMI Category" = "bmi")),#"Diabetic"="diabetes" 
                          p("Of the nearly 49,000 people who responded to the Ohio Family Health Survey in 2008 (and included their county of residence in their response), 7,260 have some form of diabetes. This map shows the distribution of respondents who said 'yes' when asked if they have diabetes in the 2008 OFHS survey. Based on this distribution, it appears that diabetes cases are most prevalent in southern Ohio and Appalachian counties. Click on a county to view the number of respondents, the percentage of people with diabetes, as well as the distribution of Type I and Type II diabetes among the diabetic population."),
                          p("The charts below each map show the distribution of demographic traits among diabetic and nondiabetic populations at the state level.")
                        ),
                        mainPanel(
                          fluidRow(
-                           column(6, 
-                                  leafletOutput("ofhs_left")),
-                           column(6, 
-                                  leafletOutput("ofhs_right"))
-                         ),
+                           leafletOutput("ofhs_left")),
                          fluidRow(
                            plotOutput("plotOFHS")
                          )
@@ -43,21 +45,15 @@ shinyUI(bootstrapPage(
                        
               ), #end OFHS panel
               tabPanel("BRFSS 2011",
+                       titlePanel("Diabetic Demographics, BRFSS 2011"),
                        sidebarPanel(
-                         selectInput("choices11", "Demographic:", choices = c("See More Details"="diabetes", "Access to Healthcare" = "coverage", "Higher Education" = "education", "Minority"="race", "Sex"="sex", "Income Level"="income", "Afford Doctor's Visit"="afford", "Exercise"="exercise", "General Health"="health")),
+                         selectInput("choices11", "Demographic:", choices = c("See More Details"="diabetes", "Access to Healthcare" = "coverage", "Higher Education" = "education", "Afford Doctor's Visit"="afford", "General Health"="health")),
                          p("The map(s) displayed show the demographics for the diabetics only. Nondiabetics are not used to calculate this percent. The graph below shows the proportion of diabetics and nondiabetics for the entire state. Click on a county to view the percent of the population that falls into the designated category."), 
                          p("The charts below each map show the distribution of demographic traits among diabetic and nondiabetic populations at the state level.")
                        ),
-                       titlePanel("Diabetic Demographics for 2011"),
                        mainPanel(
                          fluidRow(
-                           column(6,
-                                  leafletOutput("main11")
-                           ),
-                           column(6,
-                                  
-                                  leafletOutput("minus111")
-                           )
+                           leafletOutput("main11")
                          ),
                          fluidRow(
                            plotOutput("plot11")
@@ -66,21 +62,15 @@ shinyUI(bootstrapPage(
                        
               ),
               tabPanel("BRFSS 2012",
+                       titlePanel("Diabetic Demographics, BRFSS 2012"),
                        sidebarPanel(
-                         selectInput("choices12", "Demographic:", choices = c("See More Details"="diabetes", "Access to Healthcare" = "coverage", "Higher Education" = "education", "Minority"="race", "Sex"="sex", "Income Level"="income", "Afford Doctor's Visit"="afford", "Exercise"="exercise", "General Health"="health")),
+                         selectInput("choices12", "Demographic:", choices = c("See More Details"="diabetes", "Access to Healthcare" = "coverage", "Higher Education" = "education", "Afford Doctor's Visit"="afford", "General Health"="health")),
                          p("The map(s) displayed show the demographics for the diabetics only. Nondiabetics are not used to calculate this percent. The graph below shows the proportion of diabetics and nondiabetics for the entire state."), 
                          p("The charts below each map show the distribution of demographic traits among diabetic and nondiabetic populations at the state level.")
                        ),
-                       titlePanel("Diabetic Demographics for 2012"),
                        mainPanel(
                          fluidRow(
-                           column(6,
-                                  leafletOutput("main12")
-                           ),
-                           column(6,
-                                  
-                                  leafletOutput("minus112")
-                           )
+                           leafletOutput("main12")
                          ),
                          fluidRow(
                            plotOutput("plot12")
