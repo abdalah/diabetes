@@ -2,8 +2,8 @@ name: diabetes
 account: abidan
 server: shinyapps.io
 appId: 88047
-bundleId: 391593
+bundleId: 396872
 url: https://abidan.shinyapps.io/diabetes/
-when: 1457554121.69506
+when: 1458154108.91571
 asMultiple: FALSE
 asStatic: FALSE
